@@ -3,7 +3,7 @@
 import streamlit as st
 import time
 import itertools
-import Backend
+from Backend import ask_groq 
 
 # --- Image URLs from GitHub (RAW links) ---
 logo_url = "https://raw.githubusercontent.com/CIBIRAJGL/WISP/main/Resources/Logo.png"
@@ -44,7 +44,7 @@ if prompt := st.chat_input("Type here..."):
 
         # Typing effect with a spinner
         with st.spinner(text="Thinking... 💭💭💭"):
-            raw_response = chatbot_groq.ask_groq(prompt)  # ✅ Use the correct function
+            raw_response = ask_groq(prompt) 
             response = str(raw_response)
 
             # Typing animation effect
